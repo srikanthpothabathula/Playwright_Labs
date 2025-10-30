@@ -37,7 +37,17 @@ test("Verify the Xpath locators", async ({page})=>{
     await expect(reglink).toBeVisible();
 
     
+    //last()
+    const lastitem: Locator = page.locator("//div[@class='column follow-us']//li[last()]");
+    await expect(lastitem).toBeVisible();
+    console.log("Text content of last element:-", await lastitem.textContent());
 
+    //position()
+    const positionitem: Locator = page.locator("//div[@class='column follow-us']//li[position()=3]");
+    await expect(positionitem).toBeVisible();
+    console.log("Text content of position element:-", await positionitem.textContent());
+
+    
 
 
 
